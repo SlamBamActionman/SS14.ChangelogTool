@@ -104,6 +104,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                                        id: 9862
                                        time: '2022-12-05T12:03:05.0000000+00:00'
                                        url: https://example.com/pr/42
+                                       labels: []
                                      
                                      """;
         Assert.EndsWith(expectedEntry, updatedContent);
@@ -194,6 +195,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                                        id: 9862
                                        time: '2022-12-05T12:03:05.0000000+00:00'
                                        url: https://example.com/pr/42
+                                       labels: []
                                      
                                      """;
         Assert.EndsWith(expectedEntry, updatedContent);

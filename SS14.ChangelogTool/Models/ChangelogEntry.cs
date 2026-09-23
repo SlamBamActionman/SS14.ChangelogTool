@@ -47,5 +47,5 @@ public sealed class ChangelogEntry
     /// List of labels applied to the PR.
     /// </summary>
     [YamlMember(Alias = "labels", Order = 5)]
-    public required ImmutableArray<string> Labels { get; set; }
+    public required List<string> Labels { get; set; }
 }
