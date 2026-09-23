@@ -28,9 +28,9 @@ public class ChangelogParseTest
 
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         var pr = new GitHubPullRequest(true, text, new GitHubUser("PJB"), time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = [];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
         Assert.NotNull(parsed);
         var entry = parsed.Single().Value;
@@ -59,9 +59,9 @@ public class ChangelogParseTest
 
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         var pr = new GitHubPullRequest(true, text, new GitHubUser("Swept"), time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = [];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
         Assert.NotNull(parsed);
         var entry = parsed.Single().Value;
@@ -87,9 +87,9 @@ public class ChangelogParseTest
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         // GitHub returns "author: null" for PRs whose author account was deleted (User deserializes to null).
         var pr = new GitHubPullRequest(true, text, null, time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = [];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
         Assert.NotNull(parsed);
         var entry = parsed.Single().Value;
@@ -115,9 +115,9 @@ public class ChangelogParseTest
 
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         var pr = new GitHubPullRequest(true, text, new GitHubUser("Swept"), time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = [];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
                 Assert.NotNull(parsed);
         var entry = parsed.Single().Value;
@@ -137,9 +137,9 @@ public class ChangelogParseTest
 
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         var pr = new GitHubPullRequest(true, text, new GitHubUser("AJCM-Git"), time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = [];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
                 Assert.NotNull(parsed);
         var entry = parsed.Single().Value;
@@ -166,9 +166,9 @@ public class ChangelogParseTest
 
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         var pr = new GitHubPullRequest(true, text, new GitHubUser("Swept"), time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = [];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
                 Assert.NotNull(parsed);
         var entry = parsed.Single().Value;
@@ -200,9 +200,9 @@ public class ChangelogParseTest
 
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         var pr = new GitHubPullRequest(true, text, new GitHubUser("Swept"), time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = ["Admin"];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
                 Assert.NotNull(parsed);
         Assert.Equal(2, parsed.Count);
@@ -237,9 +237,9 @@ public class ChangelogParseTest
 
         var time = new DateTimeOffset(2021, 1, 1, 1, 1, 1, TimeSpan.Zero);
         var pr = new GitHubPullRequest(true, text, new GitHubUser("Swept"), time, new GitHubPullRequestBase("master"), 123,
-            "https://www.example.com");
+            "https://www.example.com", [ new GitHubLabel("test_label")]);
         IReadOnlyCollection<string> extraCategories = ["Admin"];
-        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories);
+        var parsed = Services.ChangelogParserService.ParsePrBody(pr, extraCategories, ["test_label"]);
 
                 Assert.NotNull(parsed);
         var entry = parsed.Single().Value;

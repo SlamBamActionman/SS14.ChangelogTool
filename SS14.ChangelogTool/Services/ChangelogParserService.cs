@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Microsoft.Extensions.Logging;
 using SS14.ChangelogTool.Models;
 using SS14.ChangelogTool.Models.GitHub;
@@ -23,13 +24,14 @@ public partial class ChangelogParserService(ILogger<ChangelogParserService> logg
     /// <inheritdoc/>
     public Dictionary<string, List<ChangelogEntry>> ExtractChangelogEntries(
         IEnumerable<GitHubPullRequest> pullRequests,
-        List<string>? extraCategories = null
+        List<string>? extraCategories = null,
+        List<string>? includedLabels = null
     )
     {
         var changesByCategory = new Dictionary<string, List<ChangelogEntry>>();
         foreach (var pr in pullRequests)
         {
-            var parsed = ParsePrBody(pr, extraCategories ?? []);
+            var parsed = ParsePrBody(pr, extraCategories ?? [], includedLabels ?? []);
             foreach (var (category, changelogEntry) in parsed)
             {
                 if (!changesByCategory.TryGetValue(category, out var list))
@@ -46,7 +48,7 @@ public partial class ChangelogParserService(ILogger<ChangelogParserService> logg
     }
 
 
-    public static Dictionary<string, ChangelogEntry> ParsePrBody(GitHubPullRequest pr, IReadOnlyCollection<string> extraCategories)
+    public static Dictionary<string, ChangelogEntry> ParsePrBody(GitHubPullRequest pr, IReadOnlyCollection<string> extraCategories, IReadOnlyCollection<string> includedLabels)
     {
         var allCategories = new HashSet<string> { Constants.MainCategory };
         allCategories.UnionWith(extraCategories);
@@ -64,6 +66,10 @@ public partial class ChangelogParserService(ILogger<ChangelogParserService> logg
 
         var currentCategory = Constants.MainCategory;
         var entries = new List<(string Category, ChangeDescription ChangeDone)>();
+        var labels = new List<string>();
+        foreach (var label in pr.Labels)
+            if (includedLabels.Contains(label.Name))
+                labels.Add(label.Name);
 
         var reader = new StringReader(changelogBody);
         while (reader.ReadLine() is { } line)
@@ -115,7 +121,8 @@ public partial class ChangelogParserService(ILogger<ChangelogParserService> logg
                     Author = author,
                     Changes = x.Select(c => c.ChangeDone)
                         .ToList(),
-                    Time = (pr.MergedAt ?? DateTimeOffset.Now).ToString("O")
+                    Time = (pr.MergedAt ?? DateTimeOffset.Now).ToString("O"),
+                    Labels = [..labels],
                 }
             );
     }

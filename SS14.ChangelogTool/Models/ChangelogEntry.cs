@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Core;
+﻿using System.Collections.Immutable;
+using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 
 namespace SS14.ChangelogTool.Models;
@@ -41,4 +42,10 @@ public sealed class ChangelogEntry
     /// </summary>
     [YamlMember(Alias = "changes", Order = 1)]
     public required List<ChangeDescription> Changes { get; set; }
+
+    /// <summary>
+    /// List of labels applied to the PR.
+    /// </summary>
+    [YamlMember(Alias = "labels", Order = 5)]
+    public required ImmutableArray<string> Labels { get; set; }
 }

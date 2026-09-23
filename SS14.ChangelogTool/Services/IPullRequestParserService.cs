@@ -13,6 +13,7 @@ public interface IPullRequestParserService
     /// </summary>
     Dictionary<string, List<ChangelogEntry>> ExtractChangelogEntries(
         IEnumerable<GitHubPullRequest> pullRequests,
-        List<string>? extraCategories = null
+        List<string>? extraCategories = null,
+        List<string>? includedLabels = null
     );
 }

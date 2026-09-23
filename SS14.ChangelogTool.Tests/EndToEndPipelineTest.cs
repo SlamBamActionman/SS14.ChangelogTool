@@ -57,7 +57,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new DateTimeOffset(new DateTime(2022,12,5,12,3,5), TimeSpan.Zero),
                              new GitHubPullRequestBase("master"),
                              Number: 42,
-                             "https://example.com/pr/42"
+                             "https://example.com/pr/42", 
+                             [ new GitHubLabel("test_label")]
                          )
                      ],
                      []
@@ -146,7 +147,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new DateTimeOffset(new DateTime(2022,12,5,12,3,5), TimeSpan.Zero),
                              new GitHubPullRequestBase("master"),
                              Number: 42,
-                             "https://example.com/pr/42"
+                             "https://example.com/pr/42", 
+                             [ new GitHubLabel("test_label")]
                          )
                      ],
                      []
@@ -223,7 +225,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new DateTimeOffset(new DateTime(2022,12,5,12,3,5), TimeSpan.Zero),
                              new GitHubPullRequestBase("master"),
                              999,
-                             "https://example.com/pr/999")
+                             "https://example.com/pr/999",
+                             [ new GitHubLabel("test_label")])
                      ],
                      []
                  ));
@@ -330,7 +333,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new DateTimeOffset(new DateTime(2024,1,15,8,0,0), TimeSpan.Zero),
                              new GitHubPullRequestBase("master"),
                              Number: 200,
-                             "https://example.com/pr/200"
+                             "https://example.com/pr/200",
+                             [ new GitHubLabel("test_label")]
                          )
                      ],
                      []
@@ -427,7 +431,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new DateTimeOffset(new DateTime(2023,3,10,14,0,0), TimeSpan.Zero),
                              new GitHubPullRequestBase("master"),
                              Number: 101,
-                             "https://example.com/pr/101"
+                             "https://example.com/pr/101",
+                             [ new GitHubLabel("test_label")]
                          )
                      ],
                      []
@@ -490,7 +495,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new DateTimeOffset(new DateTime(2023,8,20,9,30,0), TimeSpan.Zero),
                              new GitHubPullRequestBase("master"),
                              Number: 150,
-                             "https://example.com/pr/150"
+                             "https://example.com/pr/150",
+                             [ new GitHubLabel("test_label")]
                          )
                      ],
                      []
@@ -552,7 +558,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new DateTimeOffset(new DateTime(2023,8,20,9,30,0), TimeSpan.Zero),
                              new GitHubPullRequestBase("master"),
                              Number: 150,
-                             "https://example.com/pr/150"
+                             "https://example.com/pr/150",
+                             [ new GitHubLabel("test_label")]
                          )
                      ],
                      []
@@ -676,7 +683,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                         new DateTimeOffset(new DateTime(2023,6,1,10,0,0), TimeSpan.Zero),
                         new GitHubPullRequestBase("master"),
                         Number: 99,
-                        "https://example.com/pr/99"
+                        "https://example.com/pr/99",
+                        [ new GitHubLabel("test_label")]
                     )
                 ],
                 []
@@ -733,7 +741,8 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                         new DateTimeOffset(new DateTime(2024,5,1,12,0,0), TimeSpan.Zero),
                         new GitHubPullRequestBase("master"),
                         Number: 300,
-                        "https://example.com/pr/300"
+                        "https://example.com/pr/300",
+                        [ new GitHubLabel("test_label")]
                     )
                 ],
                 []

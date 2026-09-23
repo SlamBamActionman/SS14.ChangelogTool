@@ -32,6 +32,10 @@ public class ChangelogGeneratorService(
         List<string> extraCategories = [];
         if (_options.ExtraCategories is not null)
             extraCategories.AddRange(_options.ExtraCategories.Split(','));
+        
+        List<string> includedLabels = [];
+        if (_options.IncludedLabels is not null)
+            includedLabels.AddRange(_options.IncludedLabels.Split(','));
 
         // Get the last merged PR time
         var lastMergeSha = lastChangeShaProvider(extraCategories);
@@ -51,7 +55,7 @@ public class ChangelogGeneratorService(
         );
 
         // Generate a new YMLfest out of this
-        var changelogs = parserService.ExtractChangelogEntries(diff.PullRequests, extraCategories);
+        var changelogs = parserService.ExtractChangelogEntries(diff.PullRequests, extraCategories, includedLabels);
 
         if(logger.IsEnabled(LogLevel.Trace))
             logger.LogTrace("After testing patterns and checking pull request details got: \r\n{entries}", string.Join(", ", changelogs.SelectMany(x => x.Value).Select(x => x.Url)));

@@ -1,4 +1,6 @@
-﻿namespace SS14.ChangelogTool.Models.GitHub;
+﻿using System.Collections.Immutable;
+
+namespace SS14.ChangelogTool.Models.GitHub;
 
 public sealed record GitHubPullRequest(
     bool Merged,
@@ -7,7 +9,8 @@ public sealed record GitHubPullRequest(
     DateTimeOffset? MergedAt,
     GitHubPullRequestBase? Base,
     int Number,
-    string Url
+    string Url,
+    ImmutableArray<GitHubLabel> Labels
 );
 
 public sealed class GitHubPullRequestsResponse

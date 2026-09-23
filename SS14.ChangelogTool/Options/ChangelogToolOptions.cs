@@ -108,4 +108,14 @@ public sealed class ChangelogToolOptions
     /// </remarks>
     [ConfigurationKeyName("IS_PROCESS_ONLY_FROM_CURRENT_REPO_ENABLED")]
     public bool IsProcessOnlyFromCurrentRepoEnabled { get; set; } = true;
+    
+    /// <summary>
+    /// Labels that will be checked for and stored in the changelog data. Separated using ",".
+    /// </summary>
+    /// <remarks>
+    /// Useful to filter out for specific labels on PRs that may be relevant to changelog services without
+    /// clogging up the changelogs with extraneous labels. 
+    /// </remarks>
+    [ConfigurationKeyName("INCLUDED_LABELS")]
+    public string? IncludedLabels { get; set; }
 }
