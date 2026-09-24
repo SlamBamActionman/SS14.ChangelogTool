@@ -50,7 +50,11 @@ public class GithubGraphQLClient(
                                            }
                                            number
                                            url
-                                           labels
+                                           labels(first: 100) {
+                                             nodes {
+                                               name
+                                             }
+                                           }
                                          }
                                          """
                 )

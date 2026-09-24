@@ -67,7 +67,7 @@ public partial class ChangelogParserService(ILogger<ChangelogParserService> logg
         var currentCategory = Constants.MainCategory;
         var entries = new List<(string Category, ChangeDescription ChangeDone)>();
         var labels = new List<string>();
-        foreach (var label in pr.Labels)
+        foreach (var label in pr.Labels.Nodes)
             if (includedLabels.Contains(label.Name))
                 labels.Add(label.Name);
 

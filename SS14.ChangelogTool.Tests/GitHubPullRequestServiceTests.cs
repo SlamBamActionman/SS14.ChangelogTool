@@ -110,6 +110,6 @@ public class GitHubPullRequestServiceTests
 
     private static GitHubPullRequest PullRequestFactory(int pullRequestNumber)
     {
-        return new GitHubPullRequest(true, "some-buddy", new GitHubUser("sm1"), new DateTimeOffset(), new GitHubPullRequestBase("ref"), pullRequestNumber, "some-url", [ new GitHubLabel("test_label")]);
+        return new GitHubPullRequest(true, "some-buddy", new GitHubUser("sm1"), new DateTimeOffset(), new GitHubPullRequestBase("ref"), pullRequestNumber, "some-url", GitHubLabels.From("test_label"));
     }
 }

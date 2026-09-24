@@ -58,7 +58,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new GitHubPullRequestBase("master"),
                              Number: 42,
                              "https://example.com/pr/42", 
-                             [ new GitHubLabel("test_label")]
+                             GitHubLabels.From("test_label")
                          )
                      ],
                      []
@@ -149,7 +149,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new GitHubPullRequestBase("master"),
                              Number: 42,
                              "https://example.com/pr/42", 
-                             [ new GitHubLabel("test_label")]
+                             GitHubLabels.From("test_label")
                          )
                      ],
                      []
@@ -228,7 +228,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new GitHubPullRequestBase("master"),
                              999,
                              "https://example.com/pr/999",
-                             [ new GitHubLabel("test_label")])
+                             GitHubLabels.From("test_label"))
                      ],
                      []
                  ));
@@ -336,7 +336,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new GitHubPullRequestBase("master"),
                              Number: 200,
                              "https://example.com/pr/200",
-                             [ new GitHubLabel("test_label")]
+                             GitHubLabels.From("test_label")
                          )
                      ],
                      []
@@ -434,7 +434,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new GitHubPullRequestBase("master"),
                              Number: 101,
                              "https://example.com/pr/101",
-                             [ new GitHubLabel("test_label")]
+                             GitHubLabels.From("test_label")
                          )
                      ],
                      []
@@ -498,7 +498,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new GitHubPullRequestBase("master"),
                              Number: 150,
                              "https://example.com/pr/150",
-                             [ new GitHubLabel("test_label")]
+                             GitHubLabels.From("test_label")
                          )
                      ],
                      []
@@ -561,7 +561,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                              new GitHubPullRequestBase("master"),
                              Number: 150,
                              "https://example.com/pr/150",
-                             [ new GitHubLabel("test_label")]
+                             GitHubLabels.From("test_label")
                          )
                      ],
                      []
@@ -686,7 +686,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                         new GitHubPullRequestBase("master"),
                         Number: 99,
                         "https://example.com/pr/99",
-                        [ new GitHubLabel("test_label")]
+                        GitHubLabels.From("test_label")
                     )
                 ],
                 []
@@ -744,7 +744,7 @@ public class EndToEndPipelineTest(ITestOutputHelper outputHelper) : IDisposable
                         new GitHubPullRequestBase("master"),
                         Number: 300,
                         "https://example.com/pr/300",
-                        [ new GitHubLabel("test_label")]
+                        GitHubLabels.From("test_label")
                     )
                 ],
                 []

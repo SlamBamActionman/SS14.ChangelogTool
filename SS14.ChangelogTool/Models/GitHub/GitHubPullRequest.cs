@@ -10,7 +10,7 @@ public sealed record GitHubPullRequest(
     GitHubPullRequestBase? Base,
     int Number,
     string Url,
-    ImmutableArray<GitHubLabel> Labels
+    GitHubLabels Labels
 );
 
 public sealed class GitHubPullRequestsResponse
